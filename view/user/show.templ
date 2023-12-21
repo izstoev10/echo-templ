@@ -1,0 +1,23 @@
+package user
+
+import "github.com/izstoev10/echo-templ/view/layout"
+import "github.com/izstoev10/echo-templ/view/components"
+import "github.com/izstoev10/echo-templ/model"
+
+func getUser(c context.Context) string {
+	user, ok := c.Value("user").(string)
+	if !ok {
+		return ""
+	}
+	return user
+}
+
+templ Show(user model.User) {
+	@layout.Base() {
+		<h1>hello { user.Email } from the user page</h1>
+		@components.Input(components.InputProps{
+			FieldType: "email",
+			Name: "user.Email",
+		})
+	}
+}

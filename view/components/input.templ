@@ -1,0 +1,14 @@
+package components 
+
+type InputProps struct {
+	FieldType string
+	Name      string
+}
+
+css floatingRight() {
+	float: right;
+}
+
+templ Input(props InputProps) {
+	<input class={ "input-box", floatingRight() } type={ props.FieldType } name={ props.Name }/>
+}
